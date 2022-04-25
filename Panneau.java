@@ -11,30 +11,31 @@ public class Panneau extends JPanel{// jpannel
   private Tetromino tetroFutur;
   private Tetromino tetroActuel;
   private Bloc[][] grille;
+  private int largeur_ecran;
+  private int hauteur_ecran; 
+  private int unite; 
 
-  public Panneau (){
+
+  public Panneau (int x, int y){
     nbcolonne = 11;
     nbligne = 20;
     grille = new Bloc[nbligne][nbcolonne];
-    for(int i=0;i<nbligne;i++)
-    {
-      for(int j=0;j<nbcolonne;j++)
-      {
-        grille[i][j] = new Bloc(0);
-      }
-    }
-    tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5),false);
-    tetroActuel = new Tetromino((int)Math.ceil(Math.random()*5),true);
+    largeur_ecran = 200;
+    hauteur_ecran = 200;
+    unite = largeur_ecran/10; 
   }
 
     public void paintComponent(Graphics g){
       super.paintComponent(g);
+      g.setColor(Color.black);
+      g.fillRect(0,0, largeur_ecran, hauteur_ecran);
       g.setColor(Color.green);
-      g.fillRect(0,0, 200,20);
-      g.setColor(Color.red);
-      g.fillRect(10,10, 300,30);
-      g.setColor(Color.blue);
-      g.fillRect(50, 250, 100, 300 );
+      for (int i=0; i<10; i++){
+        g.drawLine(0,i*unite,hauteur_ecran,i*unite);
+      }
+      for (int i=0; i<10; i++){
+        g.drawLine(i*unite,0,i*unite,largeur_ecran);
+      }
     }
 
 // accesseurs pour actuel, futur et grille

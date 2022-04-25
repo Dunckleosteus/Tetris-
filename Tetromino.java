@@ -19,22 +19,10 @@ public class Tetromino{
       coordoy = 2000;
     }
     // coordoonnees a modifier
-    tabTetro = new Bloc[4][4];
+    //tabTetro = new Bloc[4][4];
     if(forme == 1)
     {
-      for(int i=0;i<4;i++)
-      {
-        for(int j=0;j<4;j++)
-        {
-          tabTetro[i][j] = new Bloc(0);
-        }
-      }
-      tabTetro[1][0].set_Type(forme);
-      tabTetro[1][1].set_Type(forme);
-      tabTetro[1][2].set_Type(forme);
-      tabTetro[1][3].set_Type(forme);
-      tabTetro[1][4].set_Type(forme);
-      tabTetro[1][5].set_Type(forme);
+
     }
     // etc.
   }

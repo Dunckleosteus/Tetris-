@@ -8,6 +8,6 @@ public class Main {
       window.set_bite(20);
       window.set_bite(30);
       System.out.println("La nouvelle valeur de bite est :"+ window.get_bite());
-      System.out.println("test"+window.pan.get_Nbcolonne());
+      //System.out.println("test"+window.pan.get_Nbcolonne());
 	}//.. et ici
 }
