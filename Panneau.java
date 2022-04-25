@@ -13,12 +13,12 @@ public class Panneau extends JPanel{// jpannel
   private Bloc[][] grille;
 
   public Panneau (){
-    Nbcolonne = 11;
-    Nbligne = 20;
-    grille = new Bloc[Nbligne][Nbcolonne];
-    for(int i=0;i<Nbligne;i++)
+    nbcolonne = 11;
+    nbligne = 20;
+    grille = new Bloc[nbligne][nbcolonne];
+    for(int i=0;i<nbligne;i++)
     {
-      for(int j=0;j<Nbcolonne;j++)
+      for(int j=0;j<nbcolonne;j++)
       {
         grille[i][j] = new Bloc(0);
       }
@@ -26,7 +26,7 @@ public class Panneau extends JPanel{// jpannel
     tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5),false);
     tetroActuel = new Tetromino((int)Math.ceil(Math.random()*5),true);
   }
-  }
+
     public void paintComponent(Graphics g){
       super.paintComponent(g);
       g.setColor(Color.green);
@@ -39,7 +39,7 @@ public class Panneau extends JPanel{// jpannel
 
 // accesseurs pour actuel, futur et grille
   public int get_nbcolonne(){
-    return Nbcolonne;
+    return nbcolonne;
   }
    public int get_nbligne(){
     return nbligne;

@@ -1,11 +1,11 @@
 public class Bloc{
   //déclarer variables
-  private String Image;
-  private int Type;
+  private String image;
+  private int type;
 
   //constructeurs
    public Bloc(int y){
-      Type = y;
+      type = y;
      if (type==0)
     {
       image = "";
@@ -34,14 +34,14 @@ public class Bloc{
    }
   //accesseurs
    public String get_Image(){
-    return Image;
+    return image;
   }
   public int get_Type(){
-    return Type;
+    return type;
   }
   //modifieurs
   public void set_Image(String x){
-    Image= x;
+    image= x;
   }
   public void set_Type(int x)
   {

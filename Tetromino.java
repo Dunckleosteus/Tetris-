@@ -1,6 +1,6 @@
 public class Tetromino{
 // declarer les variables
-  private int  forme; 
+  private int forme; 
   private int vitesse;
   private int coordox;
   private int coordoy;
@@ -40,28 +40,28 @@ public class Tetromino{
   }
 // acesseurs
     public int get_Forme(){
-    return Forme;
+    return forme;
   }
     public int get_Vitesse(){
-    return Vitesse;
+    return vitesse;
   }
   public int get_Coordox(){
-    return Coordox;
+    return coordox;
   }
   public int get_Coordoy(){
-    return Coordoy;
+    return coordoy;
   }
 //modifieurs
   public void set_Forme(int x){
-    Forme= x;
+    forme= x;
   }
   public void set_Vitesse(int x){
-    Vitesse= x;
+    vitesse= x;
   }
   public void set_Coordox(int x){
-   Coordox = x;
+   coordox = x;
   }
   public void set_Coordoy(int x){
-    Coordoy= x;
+    coordoy= x;
   }
 } 
