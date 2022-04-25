@@ -1,17 +1,31 @@
 import java.awt.*;
 import javax.swing.*; 
 public class Panneau extends JPanel{// jpannel
-  private int Nbligne;
-  private int Nbcolonne;
-  private int Score;
-  private int Difficulte;
-  private int Ecran;
-  private String Imagefond;
-  private String Pathmusique;
+  private int nbligne;
+  private int nbcolonne;
+  private int score;
+  private int difficulte;
+  private int ecran;
+  private String imagefond;
+  private String pathmusique;
+  private Tetromino tetroFutur;
+  private Tetromino tetroActuel;
+  private Bloc[][] grille;
 
-  public Panneau (int Nbcol,int Nblig){
-    Nbcolonne = Nbcol;
-    Nbligne = Nblig;
+  public Panneau (){
+    Nbcolonne = 11;
+    Nbligne = 20;
+    grille = new Bloc[Nbligne][Nbcolonne];
+    for(int i=0;i<Nbligne;i++)
+    {
+      for(int j=0;j<Nbcolonne;j++)
+      {
+        grille[i][j] = new Bloc(0);
+      }
+    }
+    tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5),false);
+    tetroActuel = new Tetromino((int)Math.ceil(Math.random()*5),true);
+  }
   }
     public void paintComponent(Graphics g){
       super.paintComponent(g);
@@ -22,47 +36,49 @@ public class Panneau extends JPanel{// jpannel
       g.setColor(Color.blue);
       g.fillRect(50, 250, 100, 300 );
     }
-  public int get_Nbcolonne(){
+
+// accesseurs pour actuel, futur et grille
+  public int get_nbcolonne(){
     return Nbcolonne;
   }
-   public int get_Nbligne(){
-    return Nbligne;
+   public int get_nbligne(){
+    return nbligne;
   }
-   public int get_Score(){
-    return Score;
+   public int get_score(){
+    return score;
   }
-   public int get_Difficulte(){
-    return Difficulte;
+   public int get_difficulte(){
+    return difficulte;
   }
-   public int get_Ecran(){
-    return Ecran;
+   public int get_ecran(){
+    return ecran;
   }
-   public String get_Imagefond(){
-    return Imagefond;
+   public String get_imagefond(){
+    return imagefond;
   }
-   public String get_Pathmusique(){
-    return Pathmusique;
+   public String get_pathmusique(){
+    return pathmusique;
   }
-  public void set_Nbcolonne(int x){
-    Nbcolonne = x;
+  public void set_nbcolonne(int x){
+    nbcolonne = x;
   }
-  public void set_Nbligne(int x){
-    Nbligne = x;
+  public void set_nbligne(int x){
+    nbligne = x;
   }
-  public void set_Score(int x){
-    Score= x;
+  public void set_score(int x){
+    score= x;
   }
-  public void set_Difficulte(int x){
-    Difficulte = x;
+  public void set_difficulte(int x){
+    difficulte = x;
   }
-  public void set_Ecran(int x){
-    Ecran = x;
+  public void set_ecran(int x){
+    ecran = x;
   }
-  public void set_Imagefond(String x){
-    Imagefond = x;
+  public void set_imagefond(String x){
+    imagefond = x;
   
   }
-  public void set_Pathmusique(String x){
-    Pathmusique = x;
+  public void set_pathmusique(String x){
+    pathmusique = x;
   }
 }
