@@ -6,29 +6,32 @@ public class Bloc{
   //constructeurs
    public Bloc(int y){
       type = y;
-     if (type==0)
+    if(type==0)
     {
-      image = "";
+      image = "Bleu.png";
     }
     if(type==1)
     {
-      image = "Bleu.jpg";
+      image = "Bleu.png";
     }
     if(type==2)
     {
-      image = "Rouge.jpg";
+      image = "Rouge.png";
     }
      if(type==3)
     {
-      image = "Jaune.jpg";
+      image = "Jaune.png";
     }
      if(type==4)
     {
-      image = "Vert.jpg";
+      image = "Vert.png";
     }
      if(type==5)
     {
-      image = "Violet.jpg";
+      image = "Violet.png";
+    }
+    if(type == 6){
+      image = "Violet.png"
     }
        
    }
@@ -52,23 +55,23 @@ public class Bloc{
     }
     if(type==1)
     {
-      image = "Bleu.jpg";
+      image = "Bleu.png";
     }
     if(type==2)
     {
-      image = "Rouge.jpg";
+      image = "Rouge.png";
     }
      if(type==3)
     {
-      image = "Jaune.jpg";
+      image = "Jaune.png";
     }
      if(type==4)
     {
-      image = "Vert.jpg";
+      image = "Vert.png";
     }
      if(type==5)
     {
-      image = "Violet.jpg";
+      image = "Violet.png";
     }
   }
 }
