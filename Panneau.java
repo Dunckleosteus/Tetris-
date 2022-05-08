@@ -155,6 +155,8 @@ public class Panneau extends JPanel{// jpannel
         if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && (tetroActuel.get_Coordoy()-40)/20+i+1==20)
         {
           chute = false;
+	  System.out.println("copy tetro to grid"); 
+	  tetroActuel.set_Coordoy(20);
         }
         else
         {
