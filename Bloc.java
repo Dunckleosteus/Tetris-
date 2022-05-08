@@ -31,7 +31,7 @@ public class Bloc{
       image = "Violet.png";
     }
     if(type == 6){
-      image = "Violet.png"
+      image = "Violet.png";
     }
        
    }

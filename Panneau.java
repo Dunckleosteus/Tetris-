@@ -145,11 +145,29 @@ public class Panneau extends JPanel{// jpannel
     pathmusique = x;
   }
 
-  public void chuteTetroActuel ()// incremente la valeur y du tetro de 20
+  public void chuteTetroActuel ()
   {
-    // grille 
-    if (tetroActuel.get_Coordoy()<250){
-      tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() + 20);
+    boolean chute = true;
+    for(int i=0;i<4;i++)
+    {
+      for(int j=0;j<4;j++)
+      {
+        if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && (tetroActuel.get_Coordoy()-40)/20+i+1==20)
+        {
+          chute = false;
+        }
+        else
+        {
+          if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && grille[(tetroActuel.get_Coordoy()-40)/20+i+1][(tetroActuel.get_Coordox()-100)/20+j].get_Type()!=0)
+          {
+            chute = false;
+          }
+        }
       }
+    }
+    if(chute)
+    {
+      tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() + 20);
+    }
   }
 }
