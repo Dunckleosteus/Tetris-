@@ -64,8 +64,12 @@ ces trois @Override sont obrigatoires des que les
   
    @Override
     public void keyTyped(KeyEvent e) {
-      
+  
     }
+  @Override 
+  public void keyReleased(KeyEvent e){
+    
+  }
 
     @Override
     public void keyPressed(KeyEvent e)
@@ -86,6 +90,11 @@ ces trois @Override sont obrigatoires des que les
        if (e.getKeyCode()== KeyEvent.VK_DOWN)
       {
         pan.deplacementTetroBas();
+      }
+      if (e.getKeyCode()== KeyEvent.VK_SPACE)
+      {
+        //pan.deplacementaccTetroBas();
+        //speed = 300;
       }
     }
 

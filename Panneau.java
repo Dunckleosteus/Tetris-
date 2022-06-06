@@ -15,8 +15,8 @@ public class Panneau extends JPanel
   private int largeur_ecran;
   private int hauteur_ecran; 
   private int unite; 
-     private int niveau;
-     private int linesCleared;
+  private int niveau;
+  private int linesCleared;
       
   
 
@@ -130,8 +130,17 @@ public class Panneau extends JPanel
     nbcolonne = x;
   }
 public void deplacementTetroDroite (){
-  System.out.println ("jiba "); 
+  System.out.println ("droite "); 
 }
+  public void deplacementTetroGauche (){
+  System.out.println ("gauche ");
+  }
+  public void deplacementTetroHaut (){
+  System.out.println ("haut ");
+  }
+  public void deplacementTetroBas (){
+  System.out.println ("bas ");
+  }
   public void set_nbligne(int x){
     nbligne = x;
   }
@@ -162,9 +171,9 @@ public void deplacementTetroDroite (){
         if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && (tetroActuel.get_Coordoy()-40)/20+i+1==20)
         {
           chute = false;
-	  System.out.println("copy tetro to grid"); 
+	  System.out.println("Panneau copy tetro to grid"); 
     //copier les bloc du tetro actuel sur la grille 
-
+    
 
          
 // faire 2 boucles for pour parcourir le tableau tetro, retrouver l'équivalent dans grille et assigner la valeur du cube dans cette emplacement dans la grille 
