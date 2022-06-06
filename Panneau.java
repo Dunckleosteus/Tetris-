@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*; 
-public class Panneau extends JPanel{// jpannel
+public class Panneau extends JPanel
+{// jpannel
   private int nbligne;
   private int nbcolonne;
   private int score;
@@ -14,6 +15,9 @@ public class Panneau extends JPanel{// jpannel
   private int largeur_ecran;
   private int hauteur_ecran; 
   private int unite; 
+     private int niveau;
+     private int linesCleared;
+      
   
 
 
@@ -125,6 +129,9 @@ public class Panneau extends JPanel{// jpannel
   public void set_nbcolonne(int x){
     nbcolonne = x;
   }
+public void deplacementTetroDroite (){
+  System.out.println ("jiba "); 
+}
   public void set_nbligne(int x){
     nbligne = x;
   }
@@ -156,11 +163,21 @@ public class Panneau extends JPanel{// jpannel
         {
           chute = false;
 	  System.out.println("copy tetro to grid"); 
-	  tetroActuel.set_Coordoy(20);
+    //copier les bloc du tetro actuel sur la grille 
+
+
+         
+// faire 2 boucles for pour parcourir le tableau tetro, retrouver l'équivalent dans grille et assigner la valeur du cube dans cette emplacement dans la grille 
+          
+	  tetroActuel.set_Coordoy(40);
+    tetroActuel = new Tetromino(tetroFutur.get_Forme(), true);// prend la forme du tetromino futur
+    tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5), false);// nouveau tetro futur 
         }
         else
         {
-          if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && grille[(tetroActuel.get_Coordoy()-40)/20+i+1][(tetroActuel.get_Coordox()-100)/20+j].get_Type()!=0)
+          if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && 
+           grille[(tetroActuel.get_Coordoy()-40)/20+i+1] 
+           [(tetroActuel.get_Coordox()-100)/20+j].get_Type()!=0)
           {
             chute = false;
           }
@@ -171,5 +188,33 @@ public class Panneau extends JPanel{// jpannel
     {
       tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() + 20);
     }
+    // arret jeu 
   }
-}
+  /*
+     public class Joueur {
+       public Joueur(int score, int niveau)
+      
+    {
+      this.score = score;
+      this.niveau = niveau;
+    }
+       
+    public int getScore ()
+    {
+      return score;
+    }
+    public void clearedLine ()
+   {
+  
+    //Passer niveau suivant en plafonant à 3, arron entier inf nbr ligne "détruite"
+     niveau = Math.floor(linesCleared/10);
+     if (niveau >= 3){
+       niveau = 3 ; 
+     }
+    
+  */
+    
+    }
+
+        
+

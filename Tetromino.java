@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Tetromino{
 // declarer les variables
   private int forme; 
@@ -5,6 +7,11 @@ public class Tetromino{
   private int coordox;
   private int coordoy;
   private Bloc tabTetro[][];
+  
+  int [] newX;
+  int [] newY;
+  boolean alter;
+  
 //constructeurs
   public Tetromino (int x,boolean y){
     forme = x; 
@@ -95,4 +102,21 @@ public class Tetromino{
   public void set_Coordoy(int x){
     coordoy= x;
   }
+/*
+  public void rotate() {
+    var origine = getTabTetro(0);
+
+    for (var i = 0; i < 3, i ++) {
+      //var s = getTabTetro (i +1);
+      newX[i]= origine.x + origine.y - s.y;
+      newY[i] = origine.y - origine.x + s.x;
+    } 
+    alter = Arrays.stream(newX).allMatch(x -> x >= 0 && x <11 ) && Arrays.stream(newY).allMatch (y -> y<20);
+    if (alter) {
+      for (var i = 0; i <3; i ++){
+        gettabTetro ( i + 1).x = newX [i];
+        gettabTetro (i+ 1).y = newY [i];
+      }
+    }
+  */
 } 

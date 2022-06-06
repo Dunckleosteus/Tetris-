@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JLabel;
+ import java.util.Arrays;
 
 public class Fenetre extends JFrame implements KeyListener, Runnable
 {//jframe
@@ -13,6 +14,8 @@ public class Fenetre extends JFrame implements KeyListener, Runnable
   private JLabel label; 
   private Thread t;
   public Panneau pan;// declaration de panneau
+    public int speed;
+  
 
   public Fenetre(){// COnstructeur de fenetre 
     this.setTitle ("Tetris");
@@ -65,11 +68,39 @@ ces trois @Override sont obrigatoires des que les
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-      System.out.println(e.getKeyChar());//
+    public void keyPressed(KeyEvent e)
+    {
+      //if(e.getKeyChar() == "a") 
+      if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+      {
+        pan.deplacementTetroDroite();
+      }
+       if (e.getKeyCode()== KeyEvent.VK_LEFT)
+      {
+        pan.deplacementTetroGauche();
+      }
+         if (e.getKeyCode()== KeyEvent.VK_UP)
+      {
+        pan.deplacementTetroHaut();
+      }
+       if (e.getKeyCode()== KeyEvent.VK_DOWN)
+      {
+        pan.deplacementTetroBas();
+      }
     }
-    @Override
-    public void keyReleased(KeyEvent e) {}
+
+   //Rotation tetro ?
+  /*
+  public void keyPressed (KeyEvent e)
+  {
+    if (e.getKeyCode()== KeyEvent.VK_ENTER)
+    {
+      rotate;
+    }
+      
+  }*/
+  
+  
 
   public void run ()
   {
@@ -78,11 +109,31 @@ ces trois @Override sont obrigatoires des que les
       while (true)
       {
         pan.chuteTetroActuel();
-        pan.repaint();// rafraichi la page
-        t.sleep(1000);// temp a attendre
+        pan.repaint();
+        t.sleep(1000);
       }
     }
     catch (Exception e) {}
   }
   
+  // accélérer la chute tetro en appuyant sur touche espace, faire augementer la vitesse ?
+ /*
+  public void keyPressed (KeyEvent e)
+  {
+    if (e.getKeyCode()== KeyEvent.VK_SPACE)
+      {
+        pan.deplacementaccTetroBas();
+        speed = 300;
+      }
+  }
+*/
+  //changement niveau en fonction des lignes supp, chaque niveau vitesse aug ? 
+  
+   
+
+  //suppression ligne ? 
+
+
 }
+
+  

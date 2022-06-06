@@ -8,7 +8,7 @@ public class Bloc{
       type = y;
     if(type==0)
     {
-      image = "Bleu.png";
+      image = "";
     }
     if(type==1)
     {
@@ -74,4 +74,12 @@ public class Bloc{
       image = "Violet.png";
     }
   }
+  
+   public void recopie (Bloc b)
+  {
+    this.type = b.type;
+    this.image = b.image;
+  }
 }
+
+  
