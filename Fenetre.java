@@ -75,26 +75,25 @@ ces trois @Override sont obrigatoires des que les
     public void keyPressed(KeyEvent e)
     {
       //if(e.getKeyChar() == "a") 
-      if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+      if (e.getKeyCode() ==KeyEvent.VK_RIGHT)
       {
-        pan.deplacementTetroDroite();
+        //pan.deplacementTetroDroite();
       }
        if (e.getKeyCode()== KeyEvent.VK_LEFT)
       {
-        pan.deplacementTetroGauche();
+        //pan.deplacementTetroGauche();
       }
          if (e.getKeyCode()== KeyEvent.VK_UP)
       {
-        pan.deplacementTetroHaut();
+        //pan.deplacementTetroHaut();
       }
        if (e.getKeyCode()== KeyEvent.VK_DOWN)
       {
-        pan.deplacementTetroBas();
+        //pan.deplacementTetroBas();
       }
       if (e.getKeyCode()== KeyEvent.VK_SPACE)
       {
-        //pan.deplacementaccTetroBas();
-        //speed = 300;
+    //pan.tetroActuel.set_Coordoy(pan.tetroActuel.get_Coordoy()+10); // principe a appliquer 
       }
     }
 
@@ -124,25 +123,6 @@ ces trois @Override sont obrigatoires des que les
     }
     catch (Exception e) {}
   }
-  
-  // accélérer la chute tetro en appuyant sur touche espace, faire augementer la vitesse ?
- /*
-  public void keyPressed (KeyEvent e)
-  {
-    if (e.getKeyCode()== KeyEvent.VK_SPACE)
-      {
-        pan.deplacementaccTetroBas();
-        speed = 300;
-      }
-  }
-*/
-  //changement niveau en fonction des lignes supp, chaque niveau vitesse aug ? 
-  
-   
-
-  //suppression ligne ? 
-
-
 }
 
   
