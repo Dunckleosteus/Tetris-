@@ -32,11 +32,11 @@ public class Fenetre extends JFrame implements KeyListener, Runnable
     this.setContentPane(pan);//
     label = new JLabel(); //create a label
     label.setText("Score"); //set text of label
-    label.setBounds(400, 250, 100, 50);
+    label.setBounds(200, 150, 100, 50);
     label.setForeground(new Color(0x00FF00));
     label = new JLabel();
     label.setText("Quitter");
-    label.setBounds(400, 350, 100, 50);
+    label.setBounds(300, 200, 100, 50);
     label = new JLabel();
     label.setForeground(new Color(0x00FF00));
     label = new JLabel();
@@ -77,24 +77,23 @@ ces trois @Override sont obrigatoires des que les
       //if(e.getKeyChar() == "a") 
       if (e.getKeyCode() ==KeyEvent.VK_RIGHT)
       {
-        //pan.deplacementTetroDroite();
+        pan.deplacementTetroDroite();
       }
        if (e.getKeyCode()== KeyEvent.VK_LEFT)
       {
-        //pan.deplacementTetroGauche();
+        pan.deplacementTetroGauche();
       }
          if (e.getKeyCode()== KeyEvent.VK_UP)
       {
-        //pan.deplacementTetroHaut();
+        pan.deplacementTetroHaut();
       }
        if (e.getKeyCode()== KeyEvent.VK_DOWN)
       {
-        //pan.deplacementTetroBas();
+        pan.deplacementTetroBas();
       }
-      if (e.getKeyCode()== KeyEvent.VK_SPACE)
-      {
-    //pan.tetroActuel.set_Coordoy(pan.tetroActuel.get_Coordoy()+10); // principe a appliquer 
-      }
+      //if (e.getKeyCode()== KeyEvent.VK_SPACE)
+       
+    
     }
 
    //Rotation tetro ?
@@ -103,12 +102,10 @@ ces trois @Override sont obrigatoires des que les
   {
     if (e.getKeyCode()== KeyEvent.VK_ENTER)
     {
-      rotate;
+      tetro.rotate;
     }
       
   }*/
-  
-  
 
   public void run ()
   {
@@ -118,7 +115,7 @@ ces trois @Override sont obrigatoires des que les
       {
         pan.chuteTetroActuel();
         pan.repaint();
-        t.sleep(1000);
+        t.sleep(100);
       }
     }
     catch (Exception e) {}

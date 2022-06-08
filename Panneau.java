@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*; 
-public class Panneau extends JPanel
-{// jpannel
+public class Panneau extends JPanel{// jpannel
   private int nbligne;
   private int nbcolonne;
   private int score;
@@ -15,9 +14,6 @@ public class Panneau extends JPanel
   private int largeur_ecran;
   private int hauteur_ecran; 
   private int unite; 
-  private int niveau;
-  private int linesCleared;
-      
   
 
 
@@ -52,7 +48,7 @@ public class Panneau extends JPanel
       g.setColor(Color.black);
       g.fillRect(0,0, largeur_ecran, hauteur_ecran);
       
-      g.drawImage(Toolkit.getDefaultToolkit().getImage("fond.png"), 0, 0, 500, 500, this);
+      g.drawImage(Toolkit.getDefaultToolkit().getImage("plage.png"), 0, 0, 500, 500, this);
 
       /*for (int i=0; i<10; i++){
         g.drawLine(0,i*unite,hauteur_ecran,i*unite);
@@ -102,7 +98,7 @@ public class Panneau extends JPanel
           g.drawRect(c * 20 + tetroActuel.get_Coordox(), l * 20 + tetroActuel.get_Coordoy(), 20, 20);
         }
       }
-}
+    }
 
 // accesseurs pour actuel, futur et grille
   public int get_nbcolonne(){
@@ -159,55 +155,63 @@ public class Panneau extends JPanel
         if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && (tetroActuel.get_Coordoy()-40)/20+i+1==20)
         {
           chute = false;
-	        System.out.println("Panneau:  copy tetro to grid"); 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-      //copier les bloc du tetro actuel sur la grille    
-// faire 2 boucles for pour parcourir le tableau tetro, retrouver l'équivalent dans grille et assigner la valeur du cube dans cette emplacement dans la grille 
-    for (int a = 0; a<4; a++){
-      for (int b = 0; b<4; b++){
-        // cette partie a modifier pour copier entre ici ...
-        grille[a+tetroActuel.get_Coordox()/11][b] = tetroActuel.getTabTetro(a,b);//regarde ici 
-        // ...et ici 
-        }
-      }
-    tetroActuel = new Tetromino(tetroFutur.get_Forme(), true);// prend la forme du tetromino futur
-    tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5), false);// nouveau tetro futur 
-    tetroActuel.set_Coordoy(40);
-
- 
         }
         else
         {
-          if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && 
-           grille[(tetroActuel.get_Coordoy()-40)/20+i+1] 
-           [(tetroActuel.get_Coordox()-100)/20+j].get_Type()!=0)
+          if(tetroActuel.getTabTetro(i,j).get_Type()!=0 && grille[(tetroActuel.get_Coordoy()-40)/20+i+1][(tetroActuel.get_Coordox()-100)/20+j].get_Type()!=0)
           {
             chute = false;
           }
         }
       }
     }
-   
     if(chute)
     {
-     public void deplacementTetroDroite()
+      tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() + 20);
+    }
+    else
+    {
+      int ligne = (tetroActuel.get_Coordoy() - 40) / 20;
+      int colonne = (tetroActuel.get_Coordox() - 100) / 20;
+      for(int i=0;i<4;i++)
+      {
+        for(int j=0;j<4;j++)
+        {
+          if (tetroActuel.getTabTetro(i,j).get_Type()!=0)
+          {
+            grille[ligne + i][colonne + j].recopie(tetroActuel.getTabTetro(i,j));
+          }
+        }
+      }
+      tetroActuel.set_Coordoy(40);
+      tetroActuel = new Tetromino(tetroFutur.get_Forme(), true);// prend la forme du tetromino futur
+      tetroFutur = new Tetromino((int)Math.ceil(Math.random()*5), false);// nouveau tetro futur 
+    }
+  }
+
+  public void deplacementTetroDroite()
   {
     tetroActuel.set_Coordox(tetroActuel.get_Coordox() + 20);
   }
-
-    }
-    // arret jeu 
-  
-  
-
-
-        
+  public void deplacementTetroGauche()
+  {
+    tetroActuel.set_Coordox(tetroActuel.get_Coordox() -   20);
+  }
+  public void deplacementTetroHaut()
+  {
+    tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() + 20);
+  }
+  public void deplacementTetroBas()
+  {
+    tetroActuel.set_Coordoy(tetroActuel.get_Coordoy() - 20);
+  }
+   // Changer de niveau en plafonnant à 3 
+  /*
+  difficulte = Math.floor(lignedetruite/10);
+   if difficulte >= 3
+  { 
+    difficulte = 3
+  }
+  */
+}
 
